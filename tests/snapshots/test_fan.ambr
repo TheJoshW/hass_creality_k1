@@ -1,0 +1,58 @@
+# serializer version: 1
+# name: test_fans[fan.mock_title_case_fan]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Mock Title Case Fan',
+      'icon': 'mdi:fan-speed-2',
+      'percentage': None,
+      'percentage_step': 1.0,
+      'preset_mode': None,
+      'preset_modes': None,
+      'supported_features': <FanEntityFeature: 49>,
+    }),
+    'context': <ANY>,
+    'entity_id': 'fan.mock_title_case_fan',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'unknown',
+  })
+# ---
+# name: test_fans[fan.mock_title_model_fan]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Mock Title Model Fan',
+      'icon': 'mdi:fan-speed-1',
+      'percentage': None,
+      'percentage_step': 1.0,
+      'preset_mode': None,
+      'preset_modes': None,
+      'supported_features': <FanEntityFeature: 49>,
+    }),
+    'context': <ANY>,
+    'entity_id': 'fan.mock_title_model_fan',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'unknown',
+  })
+# ---
+# name: test_fans[fan.mock_title_side_fan]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Mock Title Side Fan',
+      'icon': 'mdi:fan-speed-3',
+      'percentage': None,
+      'percentage_step': 1.0,
+      'preset_mode': None,
+      'preset_modes': None,
+      'supported_features': <FanEntityFeature: 49>,
+    }),
+    'context': <ANY>,
+    'entity_id': 'fan.mock_title_side_fan',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'unknown',
+  })
+# ---

@@ -1,0 +1,15 @@
+# serializer version: 1
+# name: test_switches[switch.mock_title_printer_light]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Mock Title Printer Light',
+      'icon': 'mdi:desk-lamp',
+    }),
+    'context': <ANY>,
+    'entity_id': 'switch.mock_title_printer_light',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'unknown',
+  })
+# ---

@@ -1,0 +1,47 @@
+# serializer version: 1
+# name: test_climates[climate.mock_title_bed_heater]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'current_temperature': None,
+      'friendly_name': 'Mock Title Bed Heater',
+      'hvac_modes': list([
+        <HVACMode.HEAT: 'heat'>,
+        <HVACMode.OFF: 'off'>,
+      ]),
+      'max_temp': None,
+      'min_temp': 0.0,
+      'supported_features': <ClimateEntityFeature: 385>,
+      'target_temp_step': 1.0,
+      'temperature': None,
+    }),
+    'context': <ANY>,
+    'entity_id': 'climate.mock_title_bed_heater',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'off',
+  })
+# ---
+# name: test_climates[climate.mock_title_nozzle_heater]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'current_temperature': None,
+      'friendly_name': 'Mock Title Nozzle Heater',
+      'hvac_modes': list([
+        <HVACMode.HEAT: 'heat'>,
+        <HVACMode.OFF: 'off'>,
+      ]),
+      'max_temp': None,
+      'min_temp': 0.0,
+      'supported_features': <ClimateEntityFeature: 385>,
+      'target_temp_step': 1.0,
+      'temperature': None,
+    }),
+    'context': <ANY>,
+    'entity_id': 'climate.mock_title_nozzle_heater',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'off',
+  })
+# ---
