@@ -82,22 +82,21 @@ class MyWebSocket:
             await self.disconnect()
 
     async def receive_messages(self) -> None:
-        try:
-            while self.is_connected:
-                try:
-                    message = await asyncio.wait_for(self.ws.recv(), timeout=WS_OPERATION_TIMEOUT)
-                    if message is None:
-                        _LOGGER.warning("Received None message from server")
-                        break  # Break the loop to disconnect
-                    await self.handle_message(message)
-                except websockets.exceptions.ConnectionClosedOK:
-                    _LOGGER.info("Connection closed by server")
+        while self.is_connected:
+            try:
+                message = await asyncio.wait_for(self.ws.recv(), timeout=WS_OPERATION_TIMEOUT)
+                if message is None:
+                    _LOGGER.warning("Received None message from server")
                     break  # Break the loop to disconnect
-                except Exception as e:
-                    _LOGGER.error(f"Error receiving message: {e}")
-                    break  # Break the loop to disconnect
-        finally:
-            await self.disconnect()
+                await self.handle_message(message)
+            except asyncio.CancelledError:
+                break  # Break the loop to disconnect
+            except websockets.exceptions.ConnectionClosedOK:
+                _LOGGER.info("Connection closed by server")
+                break  # Break the loop to disconnect
+            except Exception as e:
+                _LOGGER.error(f"Error receiving message: {e}")
+                break  # Break the loop to disconnect
 
     async def handle_message(self, message: str) -> None:
         """Process a received message."""

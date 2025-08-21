@@ -18,7 +18,10 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     hass.data[DOMAIN][config_entry.entry_id] = coordinator
 
     # Trigger initial connection
-    await coordinator.async_config_entry_first_refresh()
+    try:
+        await coordinator.async_config_entry_first_refresh()
+    except Exception as e:
+        _LOGGER.warning(f"Initial connection to printer failed: {e}")
 
     # Set up platforms
     await hass.config_entries.async_forward_entry_setups(config_entry, PLATFORMS)

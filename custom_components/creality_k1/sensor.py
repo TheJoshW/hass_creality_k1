@@ -65,20 +65,32 @@ class K1Sensor(CoordinatorEntity, SensorEntity):
     @property
     def device_info(self) -> DeviceInfo:
         """Return the device info."""
-        (hw_version, sw_version) = get_hw_sw_versions(self.coordinator.data)
+        if self.coordinator.data:
+            (hw_version, sw_version) = get_hw_sw_versions(self.coordinator.data)
+            return DeviceInfo(
+                identifiers={(DOMAIN, self._config_entry.entry_id)},
+                name=self.coordinator.data.get('hostname', self._config_entry.title),
+                manufacturer=DEVICE_MANUFACTURER,
+                model=self.coordinator.data.get('model', DEVICE_MODEL),
+                hw_version=hw_version,
+                sw_version=sw_version,
+                via_device=(DOMAIN, self._config_entry.entry_id)
+            )
         return DeviceInfo(
             identifiers={(DOMAIN, self._config_entry.entry_id)},
-            name=self.coordinator.data.get('hostname', self._config_entry.title),
+            name=self._config_entry.title,
             manufacturer=DEVICE_MANUFACTURER,
-            model=self.coordinator.data.get('model', DEVICE_MODEL),
-            hw_version=hw_version,
-            sw_version=sw_version,
+            model=DEVICE_MODEL,
             via_device=(DOMAIN, self._config_entry.entry_id)
         )
 
     @property
     def available(self) -> bool:
-        return self.coordinator.websocket.is_connected and super().available
+        return (
+            self.coordinator.websocket.is_connected
+            and self.coordinator.data is not None
+            and super().available
+        )
 
 
 class K1NozzleTemperatureSensor(K1Sensor):
