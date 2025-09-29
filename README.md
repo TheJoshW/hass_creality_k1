@@ -31,7 +31,19 @@ This is a custom component for [Home Assistant](https://www.home-assistant.io/) 
 
 ## Installation
 
-### Method 1: Manual Installation
+### Method 1: Installation via HACS (Home Assistant Community Store)
+
+1. Navigate to HACS: In your Home Assistant, go to HACS > Integrations.
+2. Add Custom Repository: Click on the three dots in the top right corner and select "Custom repositories".
+3. Enter Repository URL: In the "Repository" field, paste the following URL:
+   https://github.com/hurricaneb/hass_creality_k1
+4. Select Category: Choose "Integration" as the category.
+5. Add and Install: Click "Add". The repository will now appear in your HACS integrations list. Click on it and then click "Install".
+6. Restart Home Assistant: After the installation is complete, you will be prompted to restart Home Assistant. Please do so to apply the changes.
+7. Add Integration: Go to Settings > Devices & Services and click the "Add Integration" button. Search for "Creality K1" and add it.
+8. Configure: Enter the IP address of your Creality K1 printer to complete the setup.
+
+### Method 2: Manual Installation
 
 1.  **Download the Code:** Download the `custom_components/creality_k1` folder from this repository (e.g., download the ZIP and extract it, or use git clone). Make sure you have the folder containing `__init__.py`, `manifest.json`, `sensor.py`, `switch.py`, `fan.py`, etc.
 2.  **Copy to Home Assistant:**
